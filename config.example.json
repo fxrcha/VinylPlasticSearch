@@ -1,0 +1,12 @@
+{
+    "artist_name": "Kanye West",
+    "album_name": "My Beautiful Dark Twisted Fantasy",
+    "search_sites": {
+        "YES24": true,
+        "Hottracks": true,
+        "Coupang": true,
+        "Interpark": true,
+        "Aladin": true,
+        "Synnara": true
+    }
+}
