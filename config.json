@@ -1,15 +1,15 @@
 {
-    "artist_name": "Kanye West",
-    "album_name": "My Beautiful Dark Twisted Fantasy",
+    "artist_name": "The Weeknd",
+    "album_name": "My Dear Melancholy,",
     "search_sites": {
         "YES24": true,
         "Hottracks": true,
         "Coupang": true,
         "Interpark": true,
         "Aladin": true,
-        "Synnara": true
+        "Synnara": false
     },
     "coupang_specfic": {
-        "search_only_rockets": false
+        "search_only_rockets": true
     }
 }
