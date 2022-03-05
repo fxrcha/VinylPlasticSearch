@@ -20,6 +20,14 @@ class YES24(Requester):
 
         return await self.get(self.url + query, return_type="text")
 
+    def __grab_title(self, asset) -> str:
+        res = asset.find("a", {"class": "gd_name"}).text
+
+        if asset.find("span", {"class": "gd_feature"}):
+            res += f" ({asset.find('span', {'class': 'gd_feature'}).text})"
+
+        return res
+
     async def crawl(self, album, artist) -> List[SearchResult]:
         self.soup = await self.search_album(album, artist)
 
@@ -34,9 +42,9 @@ class YES24(Requester):
             result.append(
                 SearchResult(
                     typ=item_info.find("span", {"class": "gd_res"}).text,
-                    album_title="",
-                    artist="",
-                    price="",
+                    album_title=self.__grab_title(asset=item_info),
+                    artist=item_info.find("span", {"class": "authPub info_auth"}).text,
+                    price=item_info.find("strong", {"class": "txt_num"}).text,
                     status="",
                     sale_rate="",
                 )
