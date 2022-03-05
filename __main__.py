@@ -10,3 +10,7 @@ if __name__ == "__main__":
     for key in config["search_sites"].keys():
         if config["search_sites"][key]:
             import_module(f"crawl.{key.lower()}")
+
+    import sys
+
+    print(sys.modules.keys())

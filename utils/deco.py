@@ -9,3 +9,12 @@ def soup_instance(func):
         return BeautifulSoup(raw, "html.parser")
 
     return real
+
+
+def soup_instance_sync(func):
+    @wraps(func)
+    def real(self, *args, **kwargs):
+        raw = func(self, *args, **kwargs)
+        return BeautifulSoup(raw, "html.parser")
+
+    return real
