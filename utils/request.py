@@ -49,6 +49,13 @@ class Base:
     async def get(self, url: str, **kwargs: Any):
         return await self.request(url, "GET", **kwargs)
 
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        if self.session:
+            await self.session.close()
+
 
 class Requester(Base):
     pass

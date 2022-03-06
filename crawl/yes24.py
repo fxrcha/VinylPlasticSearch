@@ -62,7 +62,7 @@ class YES24(Requester):
                 SearchResult(
                     typ=item_info.find("span", {"class": "gd_res"}).text,
                     album_title=self.__grab_title(asset=item_info),
-                    artist=self.__grab_artist(asset=item_info),
+                    artist=self.__grab_artist(asset=item_info).strip(),
                     price=item_info.find("strong", {"class": "txt_num"}).text,
                     status=self.__get_status(asset=btns),
                     sale_rate=sale_rate,
